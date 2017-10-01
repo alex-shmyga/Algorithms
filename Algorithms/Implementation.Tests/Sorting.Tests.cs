@@ -14,13 +14,13 @@ namespace Implementation.Tests
         public void InsertionSort_sorts_unsorted_array()
         {
             // arrange
-            var unsortedArray = new int [] { 5, 9, 4, 1, 7 };
+            var array = new int [] { 5, 9, 4, 1, 7 };
 
             // act
-            var sortedArray = Sorting.InsertionSort(unsortedArray);
+            Sorting.InsertionSort(array);
 
             // assert
-            sortedArray.Should().BeInAscendingOrder();
+            array.Should().BeInAscendingOrder();
         }
 
 
@@ -28,13 +28,26 @@ namespace Implementation.Tests
         public void InsertionSortDesc_sorts_unsorted_array_in_decremental_order()
         {
             // arrange
-            var unsortedArray = new int[] { 5, 9, 4, 1, 7 };
+            var array = new int[] { 5, 9, 4, 1, 7 };
 
             // act
-            var sortedArray = Sorting.InsertionSortDesc(unsortedArray);
+             Sorting.InsertionSortDesc(array);
 
             // assert
-            sortedArray.Should().BeInDescendingOrder();
+            array.Should().BeInDescendingOrder();
+        }
+
+        [Fact]
+        public void SelectionSort_sorts_unsorted_array()
+        {
+            // arrange
+            var array = new int[] { 5, 9, 4, 1, 7 };
+
+            // act
+            Sorting.SelectionSort(array);
+
+            // assert
+            array.Should().BeInAscendingOrder();
         }
     }
 }
