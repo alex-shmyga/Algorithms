@@ -49,5 +49,19 @@ namespace Implementation.Tests
             // assert
             array.Should().BeInAscendingOrder();
         }
+
+
+        [Fact]
+        public void MergeSort_sorts_unsorted_array()
+        {
+            // arrange
+            var array = new int[] { 5, 9, 4, 1, 7, 12, 10, 2, 11, 8 };
+
+            // act
+            Sorting.MergeSort(array);
+
+            // assert
+            array.Should().BeInAscendingOrder();
+        }
     }
 }
