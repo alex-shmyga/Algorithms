@@ -16,7 +16,7 @@ namespace Implementation.Tests
             var array = GetRandomIntArray(100000);
 
             // act
-            Solutions.SmartMergeSort(array);
+            SmartMergeSort.Sort(array);
 
             // assert
             array.Should().BeInAscendingOrder();

@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CormenExercices\Solutions.cs" />
+    <Compile Include="CormenExercices\InversionCounter.cs" />
+    <Compile Include="CormenExercices\SmartMergeSort.cs" />
     <Compile Include="Sorting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

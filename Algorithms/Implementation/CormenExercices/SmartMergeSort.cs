@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Implementation.KormanExercices
 {
-    public class Solutions
+    public class SmartMergeSort
     {
         private static void Merge(int[] arr, int l, int m, int r)
         {
@@ -54,7 +50,7 @@ namespace Implementation.KormanExercices
             }
         }
 
-        private static void SmartMergeSort(int[] arr, int l, int r, int k)
+        private static void Sort(int[] arr, int l, int r, int k)
         {
             if (arr.Length <= k)
             {
@@ -66,16 +62,16 @@ namespace Implementation.KormanExercices
             {
                 int m = (l + r) / 2;
 
-                SmartMergeSort(arr, l, m, k);
-                SmartMergeSort(arr, m + 1, r, k);
+                Sort(arr, l, m, k);
+                Sort(arr, m + 1, r, k);
                 Merge(arr, l, m, r);
             }
         }
 
-        public static void SmartMergeSort(int[] arr)
+        public static void Sort(int[] arr)
         {
             int k = GetK();
-            SmartMergeSort(arr, 0, arr.Length - 1, k);
+            Sort(arr, 0, arr.Length - 1, k);
         }
 
         private static int GetK()
