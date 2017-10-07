@@ -49,6 +49,32 @@ namespace Implementation.Tests
             count.Should().Be(4);
         }
 
+        [Fact]
+        public void MaxSubarrSum_from_real_int_array()
+        {
+            // arrange
+            var array = new long[] { 3, 3, 9, 9, 5 };
+
+            // act 
+            var sum = ArrayExtensions.GetMaxSubarrSum(array);
+
+            // assert
+            sum.Should().Be(29);
+        }
+
+        [Fact]
+        public void MaxSubarrSum_from_int_array()
+        {
+            // arrange
+            var array = new long[] { -2, -3, 4, -1, -2, 1, 5, -3 };
+
+            // act 
+            var sum = ArrayExtensions.GetMaxSubarrSum(array);
+
+            // assert
+            sum.Should().Be(7);
+        }
+
         private int[] GetRandomIntArray(int size)
         {
             int Min = Int32.MinValue;
