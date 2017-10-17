@@ -205,6 +205,47 @@ namespace Implementation
             b = temp;
         }
 
+        public static void HeapSortDesc(int[] arr)
+        {
+            BuildMinHeap(arr);
+
+            int size = arr.Length;
+
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                Swap(ref arr[0], ref arr[i]);
+                size = size - 1;
+                MinHeapify(arr, size, 0);
+            }
+        }
+
+        private static void BuildMinHeap(int[] arr)
+        {
+            for (int i = arr.Length / 2 - 1; i >= 0; i--)
+            {
+                MinHeapify(arr, arr.Length, i);
+            }
+        }
+
+        private static void MinHeapify(int[] arr, int length, int i)
+        {
+            int smalest = i;
+            int l = 2 * i + 1;
+            int r = 2 * i + 2;
+
+            if (l < length && arr[l] < arr[i])
+                smalest = l;
+
+            if (r < length && arr[r] < arr[smalest])
+                smalest = r;
+
+            if (smalest != i)
+            {
+                Swap(ref arr[i], ref arr[smalest]);
+                MinHeapify(arr, length, smalest);
+            }
+        }
+
         #endregion
 
         #endregion

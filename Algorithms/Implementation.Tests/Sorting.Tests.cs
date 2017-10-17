@@ -63,6 +63,19 @@ namespace Implementation.Tests
             array.Should().BeInAscendingOrder();
         }
 
+        [Fact]
+        public void HeapSortDesc_sorts_unsorted_array()
+        {
+            // arrange
+            var array = new int[] { 5, 9, 4, 1, 7 };
+
+            // act
+            Sorting.HeapSortDesc(array);
+
+            // assert
+            array.Should().BeInDescendingOrder();
+        }
+
 
         [Fact]
         public void MergeSort_sorts_unsorted_array()
