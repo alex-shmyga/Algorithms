@@ -155,6 +155,58 @@ namespace Implementation
 
         #endregion
 
+        #region HeapSort
+
+        public static void HeapSort(int[] arr)
+        {
+            BuildMaxHeap(arr);
+
+            int size = arr.Length;
+
+            for (int i = arr.Length-1; i >= 0; i--)
+            {
+                Swap(ref arr[0], ref arr[i]);
+                size = size - 1;
+                MaxHeapify(arr, size, 0);
+            }
+        }
+
+        private static void BuildMaxHeap(int[] arr)
+        {
+            for (int i = arr.Length/2-1; i >=0; i--)
+            {
+                MaxHeapify(arr, arr.Length, i);
+            }
+        }
+
+        private static void MaxHeapify(int[] arr, int length, int i)
+        {
+            int largest = i;
+            int l = 2*i + 1;
+            int r = 2*i + 2;
+
+            if (l < length && arr[l] > arr[i])
+                largest = l;
+
+            if (r < length && arr[r] > arr[largest])
+                largest = r;
+
+            if (largest != i)
+            {
+                Swap(ref arr[i], ref arr[largest]);
+                MaxHeapify(arr, length, largest);
+            }
+        }
+
+        private static void Swap(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+        #endregion
+
         #endregion
     }
 }
