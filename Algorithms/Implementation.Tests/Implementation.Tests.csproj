@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CormenExercicesTests.cs" />
+    <Compile Include="MaxQueueTests.cs" />
     <Compile Include="Sorting.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
