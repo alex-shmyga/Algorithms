@@ -76,7 +76,6 @@ namespace Implementation.Tests
             array.Should().BeInDescendingOrder();
         }
 
-
         [Fact]
         public void MergeSort_sorts_unsorted_array()
         {
