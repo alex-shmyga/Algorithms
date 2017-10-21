@@ -281,6 +281,32 @@ namespace Implementation
 
         #endregion
 
+        #region RandomizeQuickSort
+
+        public static void RandomizeQuickSort(int[] array)
+        {
+            RandomizeQuickSort(array, 0, array.Length - 1);
+        }
+
+        private static void RandomizeQuickSort(int[] arr, int p, int r)
+        {
+            if (p < r)
+            {
+                int q = RandomizePartition(arr, p, r);
+                RandomizeQuickSort(arr, p, q - 1);
+                RandomizeQuickSort(arr, q + 1, r);
+            }
+        }
+
+        private static int RandomizePartition(int[] arr, int p, int r)
+        {
+            int i = new Random().Next(p, r);
+            Swap(ref arr[r], ref arr[i]);
+            return Partition(arr, p, r);
+        }
+
+        #endregion
+
         #endregion
     }
 }
