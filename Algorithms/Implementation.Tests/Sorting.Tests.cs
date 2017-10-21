@@ -77,6 +77,19 @@ namespace Implementation.Tests
         }
 
         [Fact]
+        public void QuickSortDesc_sorts_unsorted_array()
+        {
+            // arrange
+            var array = new int[] { 5, 9, 4, 1, 7 };
+
+            // act
+            Sorting.QuickSort(array);
+
+            // assert
+            array.Should().BeInAscendingOrder();
+        }
+
+        [Fact]
         public void MergeSort_sorts_unsorted_array()
         {
             // arrange

@@ -1,4 +1,6 @@
-﻿namespace Implementation
+﻿using System;
+
+namespace Implementation
 {
     public class Sorting
     {
@@ -157,7 +159,7 @@
 
             int size = arr.Length;
 
-            for (int i = arr.Length-1; i >= 0; i--)
+            for (int i = arr.Length - 1; i >= 0; i--)
             {
                 Swap(ref arr[0], ref arr[i]);
                 size = size - 1;
@@ -167,7 +169,7 @@
 
         private static void BuildMaxHeap(int[] arr)
         {
-            for (int i = arr.Length/2-1; i >=0; i--)
+            for (int i = arr.Length / 2 - 1; i >= 0; i--)
             {
                 MaxHeapify(arr, arr.Length, i);
             }
@@ -176,8 +178,8 @@
         private static void MaxHeapify(int[] arr, int length, int i)
         {
             int largest = i;
-            int l = 2*i + 1;
-            int r = 2*i + 2;
+            int l = 2 * i + 1;
+            int r = 2 * i + 2;
 
             if (l < length && arr[l] > arr[i])
                 largest = l;
@@ -238,6 +240,43 @@
                 Swap(ref arr[i], ref arr[smalest]);
                 MinHeapify(arr, length, smalest);
             }
+        }
+
+        #endregion
+
+        #region QuickSort
+
+        public static void QuickSort(int[] array)
+        {
+            QuickSort(array, 0, array.Length - 1);
+        }
+
+        private static void QuickSort(int[] arr, int p, int r)
+        {
+            if (p < r)
+            {
+                int q = Partition(arr, p, r);
+                QuickSort(arr, p, q - 1);
+                QuickSort(arr, q + 1, r);
+            }
+        }
+
+        private static int Partition(int[] arr, int p, int r)
+        {
+            int x = arr[r];
+            int i = p - 1;
+
+            for (int j = p; j < r; j++)
+            {
+                if (arr[j] <= x)
+                {
+                    i++;
+                    Swap(ref arr[i], ref arr[j]);
+                }
+            }
+
+            Swap(ref arr[i + 1], ref arr[r]);
+            return i + 1;
         }
 
         #endregion
