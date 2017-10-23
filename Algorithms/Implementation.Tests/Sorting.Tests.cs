@@ -103,6 +103,19 @@ namespace Implementation.Tests
         }
 
         [Fact]
+        public void CountingkSort_sorts_unsorted_array()
+        {
+            // arrange
+            var array = new int[] { 5, 9, 4, 1, 7 };
+
+            // act
+            var sortedArr = Sorting.CountingSort(array, 9);
+
+            // assert
+            sortedArr.Should().BeInAscendingOrder();
+        }
+
+        [Fact]
         public void MergeSort_sorts_unsorted_array()
         {
             // arrange

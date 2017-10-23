@@ -308,5 +308,33 @@ namespace Implementation
         #endregion
 
         #endregion
+
+        #region Counting Sort   Worst-case: O(k + n), expected: O(k + n) 
+
+        public static int[] CountingSort(int[] arr, int k)
+        {
+            int[] result = new int[arr.Length];
+            int[] temp = new int[k+1];
+
+            for (int j = 0; j < arr.Length; j++)
+            {
+                temp[arr[j]]++;
+            }
+
+            for (int i = 1; i <= k; i++)
+            {
+                temp[i] += temp[i - 1];
+            }
+
+            for (int j = arr.Length-1; j>=0; --j)
+            {
+                result[temp[arr[j]]-1] = arr[j];
+                --temp[arr[j]];
+            }
+
+            return result;
+        }
+
+        #endregion
     }
 }
