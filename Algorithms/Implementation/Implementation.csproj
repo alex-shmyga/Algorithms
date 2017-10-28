@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exercices\ArrayExtensions.cs" />
-    <Compile Include="Exercices\InversionCounter.cs" />
-    <Compile Include="Exercices\MaxPriorityQueue.cs" />
-    <Compile Include="Exercices\SmartMergeSort.cs" />
-    <Compile Include="Sorting.cs" />
+    <Compile Include="Sorting\Exercices\ArrayExtensions.cs" />
+    <Compile Include="Sorting\Exercices\InversionCounter.cs" />
+    <Compile Include="Sorting\Exercices\MaxPriorityQueue.cs" />
+    <Compile Include="Sorting\Exercices\SmartMergeSort.cs" />
+    <Compile Include="Sorting\Sorting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
