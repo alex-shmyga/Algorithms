@@ -68,5 +68,67 @@ namespace Implementation.CormenExercices
 
             return leftSum + righttSum;
         }
+
+        public static long GetTheMedian(this long[] array)
+        {
+            long median = -1;
+            for (long i = 0; i < array.Length; i++)
+            {
+                int[] p = Partition(array, i);
+                if (p[0] == p[1])
+                {
+                    median = array[i];
+                    break;
+                }
+            }
+
+            return median;
+        }
+
+        private static int[] Partition(long[] ar, long index)
+        {
+            long pivot = ar[index];
+
+            int left = 0;
+            int right = 0;
+            int eq = 0;
+            for (int i = 0; i < ar.Length; i++)
+            {
+                if (i == index)
+                {
+                    continue;
+                }
+
+                if (ar[i] == pivot)
+                {
+                    eq++;
+                }
+                else if (ar[i] < pivot)
+                {
+                    left++;
+                }
+                else
+                {
+                    right++;
+                }
+            }
+
+            if (left != right)
+            {
+                for (int i = 0; i < eq; i++)
+                {
+                    if (left <= right)
+                    {
+                        left++;
+                    }
+                    else
+                    {
+                        right++;
+                    }
+                }
+            }
+
+            return new int[] { left, right };
+        }
     }
 }

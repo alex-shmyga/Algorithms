@@ -7,7 +7,7 @@ using Implementation.CormenExercices;
 
 namespace Implementation.Tests
 {
-    public class CormenExercicesTests
+    public class ExercicesTests
     {
         [Fact]
         public void SmartMergeSort_sorts_unsorted_array()
@@ -86,6 +86,22 @@ namespace Implementation.Tests
                 .ToArray();
 
             return arr;
+        }
+
+        /// <summary>
+        /// hackerrank problem: https://www.hackerrank.com/challenges/find-the-median/problem
+        /// </summary>
+        [Fact]
+        public void FindTheMedian()
+        {
+            // arrange
+            var array = new long[] { 0, 1, 2, 4, 6, 5, 3 };
+
+            // act 
+            var median = array.GetTheMedian();
+
+            // assert
+            median.Should().Be(3);
         }
     }
 }
