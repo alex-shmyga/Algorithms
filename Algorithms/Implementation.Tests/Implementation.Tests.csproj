@@ -58,9 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exercices.Tests.cs" />
-    <Compile Include="MaxQueueTests.cs" />
-    <Compile Include="Sorting.Tests.cs" />
+    <Compile Include="Sorting\Exercices.Tests.cs" />
+    <Compile Include="Sorting\MaxQueueTests.cs" />
+    <Compile Include="Sorting\Sorting.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
