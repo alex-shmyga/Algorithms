@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SimpleDS\Stack.cs" />
     <Compile Include="Sorting\Exercices\ArrayExtensions.cs" />
     <Compile Include="Sorting\Exercices\InversionCounter.cs" />
     <Compile Include="Sorting\Exercices\MaxPriorityQueue.cs" />

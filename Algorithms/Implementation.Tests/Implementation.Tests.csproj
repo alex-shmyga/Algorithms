@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Compile Include="SimpleDS\Stack.Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Implementation\Implementation.csproj">
