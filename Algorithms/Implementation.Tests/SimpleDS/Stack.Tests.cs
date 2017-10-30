@@ -7,7 +7,6 @@ namespace Implementation.Tests.SimpleDS
     public class StackTests
     {
         [Fact]
-        //public void Pop_should_return_latest_element()
         public void Push_should_add_element()
         {
             // arrange
