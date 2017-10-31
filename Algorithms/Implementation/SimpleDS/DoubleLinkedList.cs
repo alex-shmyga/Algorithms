@@ -2,11 +2,11 @@
 
 namespace Implementation.SimpleDS
 {
-    public class LinkedList
+    public class DoubleLinkedList
     {
         Node head;
 
-        public LinkedList()
+        public DoubleLinkedList()
         {
             head = null;
         }

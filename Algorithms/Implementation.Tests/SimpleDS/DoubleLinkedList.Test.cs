@@ -4,13 +4,13 @@ using FluentAssertions;
 
 namespace Implementation.Tests.SimpleDS
 {
-    public class LinkedListTests
+    public class DoubleLinkedListTests
     {
         [Fact]
         public void Insert_should_add_element()
         {
             // arrange
-            var list = new LinkedList();
+            var list = new DoubleLinkedList();
 
             // act
             list.Insert(5);
@@ -23,7 +23,7 @@ namespace Implementation.Tests.SimpleDS
         public void Insert_should_add_element2()
         {
             // arrange
-            var list = new LinkedList();
+            var list = new DoubleLinkedList();
 
             // act
             list.Insert(5);
@@ -38,7 +38,7 @@ namespace Implementation.Tests.SimpleDS
         public void Search_should_return_asking_node()
         {
             // arrange
-            var list = new LinkedList();
+            var list = new DoubleLinkedList();
             list.Insert(5);
             list.Insert(7);
             list.Insert(10);
@@ -54,7 +54,7 @@ namespace Implementation.Tests.SimpleDS
         public void Delete_should_remove_asking_node()
         {
             // arrange
-            var list = new LinkedList();
+            var list = new DoubleLinkedList();
             list.Insert(5);
             list.Insert(7);
             list.Insert(10);
