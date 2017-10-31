@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SimpleDS\DoubleLinkedList.cs" />
+    <Compile Include="SimpleDS\Queue.cs" />
+    <Compile Include="SimpleDS\Stack.cs" />
     <Compile Include="Sorting\Exercices\ArrayExtensions.cs" />
     <Compile Include="Sorting\Exercices\InversionCounter.cs" />
     <Compile Include="Sorting\Exercices\MaxPriorityQueue.cs" />
