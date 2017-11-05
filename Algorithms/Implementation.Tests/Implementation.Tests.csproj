@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SimpleDS\BinaryTree.Tests.cs" />
     <Compile Include="SimpleDS\DoubleLinkedList.Test.cs" />
     <Compile Include="SimpleDS\Queue.Tests.cs" />
     <Compile Include="Sorting\Exercices.Tests.cs" />
