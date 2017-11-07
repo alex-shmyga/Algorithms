@@ -55,6 +55,22 @@ namespace Implementation.SimpleDS
 
             return head;
         }
+
+        public static BTNode Minumum(BTNode head)
+        {
+            while (head.left != null)
+                head = head.left;
+
+            return head;
+        }
+
+        public static BTNode Maximum(BTNode head)
+        {
+            while (head.right != null)
+                head = head.right;
+
+            return head;
+        }
     }
 
 
