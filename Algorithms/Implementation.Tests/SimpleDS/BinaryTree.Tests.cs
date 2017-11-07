@@ -97,5 +97,39 @@ namespace Implementation.Tests.SimpleDS
             // assert
             result.Should().BeNull();
         }
+
+        [Fact]
+        public void TreeIterativeSearch_returns_asking_node()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            head.left = new BTNode() { key = 4 };
+            var node = new BTNode() { key = 7 };
+            head.right = node;
+            head.left.left = new BTNode() { key = 3 };
+
+            // act
+            BTNode result = BinaryTree.IterativeSearch(head, 7);
+
+            // assert
+            result.Should().Be(node);
+        }
+
+        [Fact]
+        public void TreeIterativeSearch_returns_null_when_asking_node_does_not_exist()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            head.left = new BTNode() { key = 4 };
+            var node = new BTNode() { key = 7 };
+            head.right = node;
+            head.left.left = new BTNode() { key = 3 };
+
+            // act
+            BTNode result = BinaryTree.IterativeSearch(head, 1);
+
+            // assert
+            result.Should().BeNull();
+        }
     }
 }

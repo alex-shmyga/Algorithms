@@ -44,6 +44,17 @@ namespace Implementation.SimpleDS
             else
                 return Search(head.right, k);
         }
+
+        public static BTNode IterativeSearch(BTNode head, int k)
+        {
+            while (head != null && k != head.key)
+                if (k < head.key)
+                    head = head.left;
+                else
+                    head = head.right;
+
+            return head;
+        }
     }
 
 
