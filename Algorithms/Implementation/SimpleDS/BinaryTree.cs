@@ -33,6 +33,17 @@ namespace Implementation.SimpleDS
                 func(node.key);
             }
         }
+
+        public static BTNode Search(BTNode head, int k)
+        {
+            if (head == null || head.key == k)
+                return head;
+
+            if (k < head.key)
+                return Search(head.left, k);
+            else
+                return Search(head.right, k);
+        }
     }
 
 

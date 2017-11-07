@@ -23,7 +23,7 @@ namespace Implementation.Tests.SimpleDS
 
 
             // assert
-            printedValues.Should().BeEquivalentTo(new[] {3, 4, 5, 7 });
+            printedValues.Should().BeEquivalentTo(new[] { 3, 4, 5, 7 });
         }
 
         [Fact]
@@ -45,7 +45,6 @@ namespace Implementation.Tests.SimpleDS
             printedValues.Should().BeEquivalentTo(new[] { 5, 4, 7, 3 });
         }
 
-
         [Fact]
         public void PostoderTreeWalk_goes_through_tree_in_a_descending_order()
         {
@@ -63,6 +62,40 @@ namespace Implementation.Tests.SimpleDS
 
             // assert
             printedValues.Should().BeEquivalentTo(new[] { 7, 5, 4, 3 });
+        }
+
+        [Fact]
+        public void TreeSearch_returns_asking_node()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            head.left = new BTNode() { key = 4 };
+            var node = new BTNode() { key = 7 };
+            head.right = node;
+            head.left.left = new BTNode() { key = 3 };
+
+            // act
+            BTNode result = BinaryTree.Search(head, 7);
+
+            // assert
+            result.Should().Be(node);
+        }
+
+        [Fact]
+        public void TreeSearch_returns_null_when_asking_node_does_not_exist()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            head.left = new BTNode() { key = 4 };
+            var node = new BTNode() { key = 7 };
+            head.right = node;
+            head.left.left = new BTNode() { key = 3 };
+
+            // act
+            BTNode result = BinaryTree.Search(head, 1);
+
+            // assert
+            result.Should().BeNull();
         }
     }
 }
