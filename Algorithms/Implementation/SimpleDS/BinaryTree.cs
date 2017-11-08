@@ -14,6 +14,19 @@ namespace Implementation.SimpleDS
             }
         }
 
+        public static void InorderTreeWalk2(BTNode head, Action<int> func)
+        {
+            BTNode node = Minimum(head);
+            func(node.key);
+
+            node = Successor(node);
+            while (node != null)
+            {
+                func(node.key);
+                node = Successor(node);
+            }
+        }
+
         public static void PreoderTreeWalk(this BTNode node, Action<int> func)
         {
             if (node != null)

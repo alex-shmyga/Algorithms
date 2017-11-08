@@ -252,5 +252,31 @@ namespace Implementation.Tests.SimpleDS
             // assert
             result.Should().Be(maxMode);
         }
+
+        [Fact]
+        public void InorderTreeWalk2_goes_through_tree_in_an_ascending_order()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+
+            head.left = new BTNode() { key = 4 };
+            head.left.parent = head;
+
+            head.right = new BTNode() { key = 7 };
+            head.right.parent = head;
+
+            head.left.left = new BTNode() { key = 3 };
+            head.left.left.parent = head.left;
+
+            var printedValues = new Queue<int>();
+
+
+            // act
+            BinaryTree.InorderTreeWalk2(head, (int value) => printedValues.Enqueue(value));
+
+
+            // assert
+            printedValues.Should().BeEquivalentTo(new[] { 3, 4, 5, 7 });
+        }
     }
 }
