@@ -64,10 +64,26 @@ namespace Implementation.SimpleDS
             return head;
         }
 
+        public static BTNode IterativeMinimum(BTNode head)
+        {
+            if (head.left != null)
+                return IterativeMinimum(head.left);
+
+            return head;
+        }
+
         public static BTNode Maximum(BTNode head)
         {
             while (head.right != null)
                 head = head.right;
+
+            return head;
+        }
+
+        public static BTNode IterativeMaximum(BTNode head)
+        {
+            if (head.right != null)
+                return IterativeMaximum(head.right);
 
             return head;
         }

@@ -218,5 +218,39 @@ namespace Implementation.Tests.SimpleDS
             // assert
             result.Should().Be(head);
         }
+
+        [Fact]
+        public void IterativeMinimum_returns_smallest_key_node()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            head.left = new BTNode() { key = 4 };
+            head.right = new BTNode() { key = 7 };
+            var minMode = new BTNode() { key = 3 };
+            head.left.left = minMode;
+
+            // act
+            BTNode result = BinaryTree.IterativeMinimum(head);
+
+            // assert
+            result.Should().Be(minMode);
+        }
+
+        [Fact]
+        public void IterativeMaximum_returns_biggest_key_node()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            head.left = new BTNode() { key = 4 };
+            head.right = new BTNode() { key = 7 };
+            var maxMode = new BTNode() { key = 11 };
+            head.right.right = maxMode;
+
+            // act
+            BTNode result = BinaryTree.IterativeMaximum(head);
+
+            // assert
+            result.Should().Be(maxMode);
+        }
     }
 }
