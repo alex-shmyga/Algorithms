@@ -47,6 +47,19 @@ namespace Implementation.SimpleDS
             }
         }
 
+        public static void PostoderTreeWalk2(BTNode head, Action<int> func)
+        {
+            BTNode node = Maximum(head);
+            func(node.key);
+
+            node = Predecessor(node);
+            while (node != null)
+            {
+                func(node.key);
+                node = Predecessor(node);
+            }
+        }
+
         public static BTNode Search(BTNode head, int k)
         {
             if (head == null || head.key == k)
