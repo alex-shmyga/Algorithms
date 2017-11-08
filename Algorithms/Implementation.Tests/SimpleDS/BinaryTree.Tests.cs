@@ -143,7 +143,7 @@ namespace Implementation.Tests.SimpleDS
             head.left.left = minMode;
 
             // act
-            BTNode result = BinaryTree.Minumum(head);
+            BTNode result = BinaryTree.Minimum(head);
 
             // assert
             result.Should().Be(minMode);
@@ -164,6 +164,59 @@ namespace Implementation.Tests.SimpleDS
 
             // assert
             result.Should().Be(maxMode);
+        }
+
+        [Fact]
+        public void Successor_returns_next_node()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+
+            head.left = new BTNode() { key = 4 };
+            head.left.parent = head;
+
+            var successorNode = new BTNode() { key = 7 };
+            head.right = successorNode;
+            successorNode.parent = head;
+
+            head.right.right = new BTNode() { key = 11 };
+            head.right.right.parent = head.right;
+
+
+            // act
+            BTNode result = BinaryTree.Successor(head);
+
+            // assert
+            result.Should().Be(successorNode);
+        }
+
+        [Fact]
+        public void Predecessor_returns_previous_node()
+        {
+            // arrange
+            var head = new BTNode() { key = 7 };
+
+            head.left = new BTNode() { key = 5 };
+            head.left.parent = head;
+
+            head.left.left = new BTNode() { key = 4 };
+            head.left.left.parent = head.left;
+
+            head.left.right = new BTNode() { key = 6 };
+            head.left.right.parent = head.left;
+
+            head.right = new BTNode() { key = 9 }; ;
+            head.right.parent = head;
+
+            head.right.right = new BTNode() { key = 11 };
+            head.right.right.parent = head.right;
+
+
+            // act
+            BTNode result = BinaryTree.Predecessor(head.right);
+
+            // assert
+            result.Should().Be(head);
         }
     }
 }

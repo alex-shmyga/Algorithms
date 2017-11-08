@@ -56,7 +56,7 @@ namespace Implementation.SimpleDS
             return head;
         }
 
-        public static BTNode Minumum(BTNode head)
+        public static BTNode Minimum(BTNode head)
         {
             while (head.left != null)
                 head = head.left;
@@ -70,6 +70,37 @@ namespace Implementation.SimpleDS
                 head = head.right;
 
             return head;
+        }
+
+        public static BTNode Successor(BTNode head)
+        {
+            if (head.right != null)
+                return Minimum(head.right);
+
+            var node = head.parent;
+            while (node != null && head == node.right)
+            {
+                head = node;
+                node = head.parent;
+            }
+
+            return node;
+        }
+
+
+        public static BTNode Predecessor(BTNode head)
+        {
+            if (head.left != null)
+                return Maximum(head.left);
+
+            var node = head.parent;
+            while (node != null && head == node.left)
+            {
+                head = node;
+                node = head.parent;
+            }
+
+            return node;
         }
     }
 
