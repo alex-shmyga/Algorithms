@@ -428,5 +428,32 @@ namespace Implementation.Tests.SimpleDS
             head.left.left.key.Should().Be(5);
             head.left.right.key.Should().Be(17);
         }
+
+        [Fact]
+        public void RecursiveInsert_should_add_new_element_in_a_preper_place()
+        {
+            // arrange
+            var head = new BTNode() { key = 7 };
+
+            // act
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 10 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 3 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 6 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 5 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 8 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 14 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 12 });
+            BinaryTree.RecursiveInsert(head, new BTNode() { key = 9 });
+
+            // assert
+            head.right.key.Should().Be(10);
+            head.left.key.Should().Be(3);
+            head.left.right.key.Should().Be(6);
+            head.left.right.left.key.Should().Be(5);
+            head.right.left.key.Should().Be(8);
+            head.right.right.key.Should().Be(14);
+            head.right.right.left.key.Should().Be(12);
+            head.right.left.right.key.Should().Be(9);
+        }
     }
 }

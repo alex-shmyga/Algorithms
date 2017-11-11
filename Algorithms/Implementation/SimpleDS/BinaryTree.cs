@@ -169,6 +169,25 @@ namespace Implementation.SimpleDS
                 y.right = newNode;
         }
 
+        public static BTNode RecursiveInsert(BTNode head, BTNode newNode)
+        {
+            if (head == null)
+            {
+                return newNode;
+            }
+
+            if (newNode.key < head.key)
+            {
+                head.left = RecursiveInsert(head.left, newNode);
+            }
+            else
+            {
+                head.right = RecursiveInsert(head.right, newNode);
+            }
+
+            return head;
+        }
+
         public static void Delete(BTNode head, BTNode nodeToDelete)
         {
             if (nodeToDelete.left == null)
