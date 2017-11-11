@@ -168,6 +168,41 @@ namespace Implementation.SimpleDS
             else
                 y.right = newNode;
         }
+
+        public static void Delete(BTNode head, BTNode nodeToDelete)
+        {
+            if (nodeToDelete.left == null)
+                Transplant(head, nodeToDelete, nodeToDelete.right);
+            else if (nodeToDelete.right == null)
+                Transplant(head, nodeToDelete, nodeToDelete.left);
+            else
+            {
+                BTNode y = Minimum(nodeToDelete.right);
+                if (y.parent != nodeToDelete)
+                {
+                    Transplant(head, y, y.right);
+                    y.right = nodeToDelete.right;
+                    y.right.parent = y;
+                }
+
+                Transplant(head, nodeToDelete, y);
+                y.left = nodeToDelete.left;
+                y.left.parent = y;
+            }
+        }
+
+        private static void Transplant(BTNode head, BTNode u, BTNode v)
+        {
+            if (u.parent == null)
+                head = v;
+            else if (u == u.parent.left)
+                u.parent.left = v;
+            else
+                u.parent.right = v;
+
+            if (v != null)
+                v.parent = u.parent;
+        }
     }
 
 
