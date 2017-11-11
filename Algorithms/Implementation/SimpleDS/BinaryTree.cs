@@ -222,6 +222,28 @@ namespace Implementation.SimpleDS
             if (v != null)
                 v.parent = u.parent;
         }
+
+        public static void Delete2(BTNode head, BTNode nodeToDelete)
+        {
+            if (nodeToDelete.left == null)
+                Transplant(head, nodeToDelete, nodeToDelete.right);
+            else if (nodeToDelete.right == null)
+                Transplant(head, nodeToDelete, nodeToDelete.left);
+            else
+            {
+                BTNode y = Maximum(nodeToDelete.left);
+                if (y.parent != nodeToDelete)
+                {
+                    Transplant(head, y, y.left);
+                    y.left = nodeToDelete.left;
+                    y.left.parent = y;
+                }
+
+                Transplant(head, nodeToDelete, y);
+                y.right = nodeToDelete.right;
+                y.right.parent = y;
+            }
+        }
     }
 
 

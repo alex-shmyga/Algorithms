@@ -455,5 +455,108 @@ namespace Implementation.Tests.SimpleDS
             head.right.right.left.key.Should().Be(12);
             head.right.left.right.key.Should().Be(9);
         }
+
+        [Fact]
+        public void Delete2_node_with_only_left_child_should_replace_parent()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            BinaryTree.Insert(head, new BTNode() { key = 3 });
+            BinaryTree.Insert(head, new BTNode() { key = 1 });
+
+            // act
+            BinaryTree.Delete2(head, head.left);
+
+            // assert
+            head.key.Should().Be(5);
+            head.left.key.Should().Be(1);
+            head.left.left.Should().BeNull();
+            head.left.right.Should().BeNull();
+        }
+
+        [Fact]
+        public void Delete2_node_with_only_right_child_should_replace_parent()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            BinaryTree.Insert(head, new BTNode() { key = 3 });
+            BinaryTree.Insert(head, new BTNode() { key = 4 });
+
+            // act
+            BinaryTree.Delete2(head, head.left);
+
+            // assert
+            head.key.Should().Be(5);
+            head.left.key.Should().Be(4);
+            head.left.left.Should().BeNull();
+            head.left.right.Should().BeNull();
+        }
+
+        [Fact]
+        public void Delete2_node_with_right_and_left_child_elements_without_children_should_replace_parent()
+        {
+            // arrange
+            var head = new BTNode() { key = 5 };
+            BinaryTree.Insert(head, new BTNode() { key = 3 });
+            BinaryTree.Insert(head, new BTNode() { key = 1 });
+            BinaryTree.Insert(head, new BTNode() { key = 4 });
+
+            // act
+            BinaryTree.Delete2(head, head.left);
+
+            // assert
+            head.key.Should().Be(5);
+            head.left.key.Should().Be(1);
+            head.left.right.key.Should().Be(4);
+            head.left.left.Should().BeNull();
+        }
+
+        [Fact]
+        public void Delete2_node_with_right_and_left_child_elements_and_right_child_has_right_child_should_replace_parent()
+        {
+            // arrange
+            var head = new BTNode() { key = 20 };
+            BinaryTree.Insert(head, new BTNode() { key = 15 });
+            BinaryTree.Insert(head, new BTNode() { key = 17 });
+            BinaryTree.Insert(head, new BTNode() { key = 5 });
+            BinaryTree.Insert(head, new BTNode() { key = 10 });
+            BinaryTree.Insert(head, new BTNode() { key = 7 });
+            BinaryTree.Insert(head, new BTNode() { key = 3 });
+
+            // act
+            BinaryTree.Delete2(head, head.left);
+
+            // assert
+            head.key.Should().Be(20);
+            head.left.key.Should().Be(10);
+            head.left.left.key.Should().Be(5);
+            head.left.left.left.key.Should().Be(3);
+            head.left.right.key.Should().Be(17);
+            head.left.left.right.key.Should().Be(7);
+        }
+
+        [Fact]
+        public void Delete2_node_with_right_and_left_child_elements_and_right_child_has_right_child_should_replace_parent2()
+        {
+            // arrange
+            var head = new BTNode() { key = 20 };
+            BinaryTree.Insert(head, new BTNode() { key = 15 });
+            BinaryTree.Insert(head, new BTNode() { key = 17 });
+            BinaryTree.Insert(head, new BTNode() { key = 5 });
+            //BinaryTree.Insert(head, new BTNode() { key = 10 });
+            //BinaryTree.Insert(head, new BTNode() { key = 7 });
+            BinaryTree.Insert(head, new BTNode() { key = 3 });
+
+            // act
+            BinaryTree.Delete2(head, head.left);
+
+            // assert
+            head.key.Should().Be(20);
+            //head.left.key.Should().Be(10);
+            head.left.key.Should().Be(5);
+            head.left.left.key.Should().Be(3);
+            head.left.right.key.Should().Be(17);
+            //head.left.left..key.Should().Be(7);
+        }
     }
 }
