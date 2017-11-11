@@ -144,6 +144,30 @@ namespace Implementation.SimpleDS
 
             return node;
         }
+
+        public static void Insert(BTNode head, BTNode newNode)
+        {
+            BTNode y = null;
+            BTNode x = head;
+
+            while (x != null)
+            {
+                y = x;
+                if (newNode.key < x.key)
+                    x = x.left;
+                else
+                    x = x.right;
+            }
+
+            newNode.parent = y;
+
+            if (y == null)
+                head = newNode;
+            else if (newNode.key < y.key)
+                y.left = newNode;
+            else
+                y.right = newNode;
+        }
     }
 
 

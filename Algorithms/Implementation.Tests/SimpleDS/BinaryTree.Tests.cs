@@ -304,5 +304,32 @@ namespace Implementation.Tests.SimpleDS
             // assert
             printedValues.Should().BeEquivalentTo(new[] { 7, 5, 4, 3 });
         }
+
+        [Fact]
+        public void Insert_should_add_new_element_in_a_preper_place()
+        {
+            // arrange
+            var head = new BTNode() { key = 7 };
+
+            // act
+            BinaryTree.Insert(head, new BTNode() { key = 10 });
+            BinaryTree.Insert(head, new BTNode() { key = 3 });
+            BinaryTree.Insert(head, new BTNode() { key = 6 });
+            BinaryTree.Insert(head, new BTNode() { key = 5 });
+            BinaryTree.Insert(head, new BTNode() { key = 8 });
+            BinaryTree.Insert(head, new BTNode() { key = 14 });
+            BinaryTree.Insert(head, new BTNode() { key = 12 });
+            BinaryTree.Insert(head, new BTNode() { key = 9 });
+
+            // assert
+            head.right.key.Should().Be(10);
+            head.left.key.Should().Be(3);
+            head.left.right.key.Should().Be(6);
+            head.left.right.left.key.Should().Be(5);
+            head.right.left.key.Should().Be(8);
+            head.right.right.key.Should().Be(14);
+            head.right.right.left.key.Should().Be(12);
+            head.right.left.right.key.Should().Be(9);
+        }
     }
 }
