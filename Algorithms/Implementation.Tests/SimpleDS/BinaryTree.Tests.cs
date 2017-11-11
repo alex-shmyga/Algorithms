@@ -543,8 +543,6 @@ namespace Implementation.Tests.SimpleDS
             BinaryTree.Insert(head, new BTNode() { key = 15 });
             BinaryTree.Insert(head, new BTNode() { key = 17 });
             BinaryTree.Insert(head, new BTNode() { key = 5 });
-            //BinaryTree.Insert(head, new BTNode() { key = 10 });
-            //BinaryTree.Insert(head, new BTNode() { key = 7 });
             BinaryTree.Insert(head, new BTNode() { key = 3 });
 
             // act
@@ -552,11 +550,42 @@ namespace Implementation.Tests.SimpleDS
 
             // assert
             head.key.Should().Be(20);
-            //head.left.key.Should().Be(10);
             head.left.key.Should().Be(5);
             head.left.left.key.Should().Be(3);
             head.left.right.key.Should().Be(17);
-            //head.left.left..key.Should().Be(7);
+        }
+
+        [Fact]
+        public void Delete3_deletes_proper_nodes()
+        {
+            // arrange
+            var head = new BTNode() { key = 20 };
+            BinaryTree.Insert(head, new BTNode() { key = 10 });
+            BinaryTree.Insert(head, new BTNode() { key = 15 });
+            var nodeToDelete1 = new BTNode() { key = 5 };
+            BinaryTree.Insert(head, nodeToDelete1);
+            BinaryTree.Insert(head, new BTNode() { key = 4 });  
+            BinaryTree.Insert(head, new BTNode() { key = 89 });
+            var nodeToDelete2 = new BTNode() { key = 41 };
+            BinaryTree.Insert(head, nodeToDelete2);
+            var nodeToDelete3 = new BTNode() { key = 44 };
+            BinaryTree.Insert(head, nodeToDelete3);
+            BinaryTree.Insert(head, new BTNode() { key = 411 });
+            var nodeToDelete4 = new BTNode() { key = 99 };
+            BinaryTree.Insert(head, nodeToDelete4);
+            BinaryTree.Insert(head, new BTNode() { key = 7 });
+
+            var printedValues = new Queue<int>();
+
+            // act
+            BinaryTree.Delete3(head, nodeToDelete1);
+            BinaryTree.Delete3(head, nodeToDelete2);
+            BinaryTree.Delete3(head, nodeToDelete3);
+            BinaryTree.Delete3(head, nodeToDelete4);
+            BinaryTree.InorderTreeWalk(head, (int value) => printedValues.Enqueue(value));
+
+            // assert
+            printedValues.Should().BeEquivalentTo(new[] {4, 7, 10, 15, 20, 89, 411 });
         }
     }
 }

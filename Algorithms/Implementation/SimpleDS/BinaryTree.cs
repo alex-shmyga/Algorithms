@@ -244,6 +244,14 @@ namespace Implementation.SimpleDS
                 y.right.parent = y;
             }
         }
+
+        public static void Delete3(BTNode head, BTNode nodeToDelete)
+        {
+            if (new Random().Next(0, 1) == 1)
+                Delete(head, nodeToDelete);
+            else
+                Delete2(head, nodeToDelete);
+        }
     }
 
 
