@@ -5,6 +5,14 @@ using System.Collections.Generic;
 
 namespace Implementation.Tests.SimpleDS
 {
+    /// <summary>
+    /// Time complexity in big O notation
+    /// Algorithm		Average	    Worst Case
+    /// Space		    O(n)	    O(n)
+    /// Search		    O(log n)	O(n)
+    /// Insert		    O(log n)	O(n)
+    /// Delete		    O(log n)	O(n)
+    /// </summary>
     public class BinaryTreeTests
     {
         [Fact]
