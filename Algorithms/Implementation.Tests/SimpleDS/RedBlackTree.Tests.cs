@@ -25,13 +25,10 @@ namespace Implementation.Tests.SimpleDS
             head.right.left.left = RedBlackNullNode.Instance;
             head.right.left.right = RedBlackNullNode.Instance;
 
-
-
             head.right.right.right = new RedBlackNode() { key = 12 };
             head.right.right.right.parent = head.right.right;
             head.right.right.right.left = RedBlackNullNode.Instance;
             head.right.right.right.right = RedBlackNullNode.Instance;
-
 
             head.right.right.left = new RedBlackNode() { key = 8 };
             head.right.right.left.parent = head.right.right;
@@ -52,7 +49,7 @@ namespace Implementation.Tests.SimpleDS
             head.right.left.right.parent.parent.parent.ShouldBeEquivalentTo(head);
         }
 
-        /*[Fact]
+        [Fact]
         public void RightRotate_rotate_red_black_tree_properly()
         {
             // arrange
@@ -93,6 +90,6 @@ namespace Implementation.Tests.SimpleDS
             head.right.right.left.key.Should().Be(8);
             head.right.right.right.key.Should().Be(12);
             head.right.right.right.parent.parent.parent.ShouldBeEquivalentTo(head);
-        } */
+        }
     }
 }
