@@ -7,7 +7,7 @@ namespace Implementation.Tests.SimpleDS
     public class RedBlackTreeTests
     {
         [Fact]
-        public void LeftRotate_rotate_red_black_tree_properly()
+        public void LeftRotate_rotates_tree_into_left_direction()
         {
             // arrange
             var head = new RedBlackNode() { key = 1 };
@@ -50,7 +50,7 @@ namespace Implementation.Tests.SimpleDS
         }
 
         [Fact]
-        public void RightRotate_rotate_red_black_tree_properly()
+        public void RightRotate_rotates_tree_into_right_direction()
         {
             // arrange
             var head = new RedBlackNode() { key = 1 };
@@ -90,6 +90,41 @@ namespace Implementation.Tests.SimpleDS
             head.right.right.left.key.Should().Be(8);
             head.right.right.right.key.Should().Be(12);
             head.right.right.right.parent.parent.parent.ShouldBeEquivalentTo(head);
+        }
+
+        [Fact]
+        public void Insert_new_element_into_existing_tree()
+        {
+            // arrange
+            var head = new RedBlackNode() { key = 10 };
+            head.parent = NilNode.Instance;
+
+            head.left = new RedBlackNode() { key = 5 };
+            head.left.parent = head;
+            head.left.left = NilNode.Instance;
+            head.left.right = NilNode.Instance;
+
+            head.right = new RedBlackNode() { key = 15 };
+            head.right.parent = head;
+            head.right.left = NilNode.Instance;
+            head.right.right = NilNode.Instance;
+
+
+            // act
+            RedBlackTree.Insert(head, new RedBlackNode() { key = 12 });
+
+            // assert
+            head.key.Should().Be(10);
+            head.color.Should().Be(Color.Black);
+
+            head.right.key.Should().Be(15);
+            head.right.color.Should().Be(Color.Black);
+
+            head.left.key.Should().Be(5);
+            head.left.color.Should().Be(Color.Black);
+
+            head.right.left.key.Should().Be(12);
+            head.right.left.color.Should().Be(Color.Red);
         }
     }
 }

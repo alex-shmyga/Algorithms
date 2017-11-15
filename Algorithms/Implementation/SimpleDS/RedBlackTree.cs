@@ -47,6 +47,91 @@ namespace Implementation.SimpleDS
 
             x.parent = y;
         }
+
+        public static void Insert(RedBlackNode head, RedBlackNode z)
+        {
+            RedBlackNode y = NilNode.Instance;
+            RedBlackNode x = head;
+
+            while (x != NilNode.Instance)
+            {
+                y = x;
+                if (z.key < x.key)
+                    x = x.left;
+                else
+                    x = x.right;
+            }
+
+            z.parent = y;
+            if (y == NilNode.Instance)
+                head = z;
+            else if (z.key < y.key)
+                y.left = z;
+            else
+                y.right = z;
+
+            z.left = NilNode.Instance;
+            z.right = NilNode.Instance;
+            z.color = Color.Red;
+            InsertFixup(head, z);
+        }
+
+        private static void InsertFixup(RedBlackNode head, RedBlackNode z)
+        {
+            while (z.parent.color == Color.Red)
+            {
+                if (z.parent == z.parent.parent.left)
+                {
+                    RedBlackNode y = z.parent.parent.right;
+                    if (y.color == Color.Red)
+                    {
+                        z.parent.color = Color.Black;
+                        y.color = Color.Black;
+                        z.parent.parent.color = Color.Red;
+                        z = z.parent.parent;
+                    }
+                    else
+                    {
+                        if (z == z.parent.right)
+                        {
+                            z = z.parent;
+                            LeftRotate(head, z);
+                        }
+                        z.parent.color = Color.Black;
+                        z.parent.parent.color = Color.Red;
+                        RightRotate(head, z.parent.parent);
+                    }
+                }
+                else
+                {
+                    RedBlackNode y = z.parent.parent.left;
+                    if (y.color == Color.Black)
+                    {
+                        z.parent.color = Color.Red;
+                        y.color = Color.Red;
+                        z.parent.parent.color = Color.Black;
+                        z = z.parent.parent;
+                    }
+                    else
+                    {
+                        if (z == z.parent.left)
+                        {
+                            z = z.parent;
+                            RightRotate(head, z);
+                        }
+                        z.parent.color = Color.Black;
+                        z.parent.parent.color = Color.Red;
+                        LeftRotate(head, z.parent.parent);
+                    }
+                }
+            }
+
+            var root = head;
+            while (root.parent != NilNode.Instance)
+                root = root.parent;
+
+            root.color = Color.Black;
+        }
     }
 
     public class RedBlackNode
