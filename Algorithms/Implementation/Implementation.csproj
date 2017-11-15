@@ -43,6 +43,7 @@
     <Compile Include="SimpleDS\BinaryTree.cs" />
     <Compile Include="SimpleDS\DoubleLinkedList.cs" />
     <Compile Include="SimpleDS\Queue.cs" />
+    <Compile Include="SimpleDS\RedBlackTree.cs" />
     <Compile Include="SimpleDS\Stack.cs" />
     <Compile Include="Sorting\Exercices\ArrayExtensions.cs" />
     <Compile Include="Sorting\Exercices\InversionCounter.cs" />
