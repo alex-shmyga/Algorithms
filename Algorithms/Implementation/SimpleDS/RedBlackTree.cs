@@ -9,12 +9,12 @@ namespace Implementation.SimpleDS
             var y = x.right;                // set y
             x.right = y.left;              // set left sub-tree of y to right sub-tree of x
 
-            if (y.left != RedBlackNullNode.Instance)
+            if (y.left != NilNode.Instance)
                 y.left.parent = x;
 
             y.parent = x.parent;            //  moving parent from x to y
 
-            if (x.parent == RedBlackNullNode.Instance)
+            if (x.parent == NilNode.Instance)
                 head = y;
             else if (x == x.parent.left)
                 x.parent.left = y;
@@ -31,12 +31,12 @@ namespace Implementation.SimpleDS
             var y = x.left;                // set y
             x.left = y.right;              // set right sub-tree of y to left sub-tree of x
 
-            if (y.right != RedBlackNullNode.Instance)
+            if (y.right != NilNode.Instance)
                 y.right.parent = x;
 
             y.parent = x.parent;            //  moving parent from x to y
 
-            if (x.parent == RedBlackNullNode.Instance)
+            if (x.parent == NilNode.Instance)
                 head = y;
             else if (x == x.parent.right)
                 x.parent.right = y;
@@ -64,14 +64,14 @@ namespace Implementation.SimpleDS
         Red
     }
 
-    public sealed class RedBlackNullNode : RedBlackNode
+    public sealed class NilNode
     {
-        private static volatile RedBlackNullNode instance;
+        private static volatile RedBlackNode instance;
         private static object syncRoot = new Object();
 
-        private RedBlackNullNode() { }
+        private NilNode() { }
 
-        public static RedBlackNullNode Instance
+        public static RedBlackNode Instance
         {
             get
             {
@@ -80,7 +80,7 @@ namespace Implementation.SimpleDS
                     lock (syncRoot)
                     {
                         if (instance == null)
-                            instance = new RedBlackNullNode();
+                            instance = new RedBlackNode();
                     }
                 }
 

@@ -11,8 +11,8 @@ namespace Implementation.Tests.SimpleDS
         {
             // arrange
             var head = new RedBlackNode() { key = 1 };
-            head.parent = RedBlackNullNode.Instance;
-            head.left = RedBlackNullNode.Instance;
+            head.parent = NilNode.Instance;
+            head.left = NilNode.Instance;
 
             head.right = new RedBlackNode() { key = 5 };
             head.right.parent = head;
@@ -22,18 +22,18 @@ namespace Implementation.Tests.SimpleDS
 
             head.right.left = new RedBlackNode() { key = 4 };
             head.right.left.parent = head.right;
-            head.right.left.left = RedBlackNullNode.Instance;
-            head.right.left.right = RedBlackNullNode.Instance;
+            head.right.left.left = NilNode.Instance;
+            head.right.left.right = NilNode.Instance;
 
             head.right.right.right = new RedBlackNode() { key = 12 };
             head.right.right.right.parent = head.right.right;
-            head.right.right.right.left = RedBlackNullNode.Instance;
-            head.right.right.right.right = RedBlackNullNode.Instance;
+            head.right.right.right.left = NilNode.Instance;
+            head.right.right.right.right = NilNode.Instance;
 
             head.right.right.left = new RedBlackNode() { key = 8 };
             head.right.right.left.parent = head.right.right;
-            head.right.right.left.left = RedBlackNullNode.Instance;
-            head.right.right.left.right = RedBlackNullNode.Instance;
+            head.right.right.left.left = NilNode.Instance;
+            head.right.right.left.right = NilNode.Instance;
 
 
             // act
@@ -54,29 +54,29 @@ namespace Implementation.Tests.SimpleDS
         {
             // arrange
             var head = new RedBlackNode() { key = 1 };
-            head.parent = RedBlackNullNode.Instance;
-            head.left = RedBlackNullNode.Instance;
+            head.parent = NilNode.Instance;
+            head.left = NilNode.Instance;
 
             head.right = new RedBlackNode() { key = 10 };
             head.right.parent = head;
 
             head.right.right = new RedBlackNode() { key = 12 };
             head.right.right.parent = head.right;
-            head.right.right.right = RedBlackNullNode.Instance;
-            head.right.right.left = RedBlackNullNode.Instance;
+            head.right.right.right = NilNode.Instance;
+            head.right.right.left = NilNode.Instance;
 
             head.right.left = new RedBlackNode() { key = 5 };
             head.right.left.parent = head.right;
 
             head.right.left.left = new RedBlackNode() { key = 4 };
             head.right.left.left.parent = head.right.left;
-            head.right.left.left.left = RedBlackNullNode.Instance;
-            head.right.left.left.right = RedBlackNullNode.Instance;
+            head.right.left.left.left = NilNode.Instance;
+            head.right.left.left.right = NilNode.Instance;
 
             head.right.left.right = new RedBlackNode() { key = 8 };
             head.right.left.right.parent = head.right.left;
-            head.right.left.right.left = RedBlackNullNode.Instance;
-            head.right.left.right.right = RedBlackNullNode.Instance;
+            head.right.left.right.left = NilNode.Instance;
+            head.right.left.right.right = NilNode.Instance;
 
             // act
             RedBlackTree.RightRotate(head, head.right);
