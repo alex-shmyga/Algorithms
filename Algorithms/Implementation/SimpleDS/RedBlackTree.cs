@@ -2,6 +2,14 @@
 
 namespace Implementation.SimpleDS
 {
+    /// <summary>
+    /// Complexity Analysis:   
+    ///     Insertion: Best, average, worst – O(Log n)
+    ///     Deletion: Best, average, worst – O(Log n)
+    ///     Find: Best, average, worst – O(Log n)
+    ///     Space: O(n)
+    /// </summary>
+
     public static class RedBlackTree
     {
         public static void LeftRotate(RedBlackNode head, RedBlackNode x)
