@@ -65,6 +65,7 @@
     <Compile Include="SimpleDS\BinaryTree.Tests.cs" />
     <Compile Include="SimpleDS\DoubleLinkedList.Test.cs" />
     <Compile Include="SimpleDS\Queue.Tests.cs" />
+    <Compile Include="SimpleDS\RedBlackTree.Tests.cs" />
     <Compile Include="Sorting\Exercices.Tests.cs" />
     <Compile Include="Sorting\MaxQueueTests.cs" />
     <Compile Include="Sorting\Sorting.Tests.cs" />
