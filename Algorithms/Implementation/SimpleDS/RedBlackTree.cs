@@ -9,7 +9,6 @@ namespace Implementation.SimpleDS
     ///     Find: Best, average, worst – O(Log n)
     ///     Space: O(n)
     /// </summary>
-
     public static class RedBlackTree
     {
         public static void LeftRotate(RedBlackNode head, RedBlackNode x)

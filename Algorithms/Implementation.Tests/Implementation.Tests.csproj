@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\SolutionsTests.cs" />
     <Compile Include="SimpleDS\BinaryTree.Tests.cs" />
     <Compile Include="SimpleDS\DoubleLinkedList.Test.cs" />
     <Compile Include="SimpleDS\Queue.Tests.cs" />
