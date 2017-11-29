@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\Exercices\TheCoinChangeProblem.cs" />
     <Compile Include="DynamicProgramming\Solutions.cs" />
     <Compile Include="SimpleDS\BinaryTree.cs" />
     <Compile Include="SimpleDS\DoubleLinkedList.cs" />
