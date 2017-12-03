@@ -40,9 +40,7 @@ namespace Implementation.DynamicProgramming
             {
                 q = int.MinValue;
                 for (int i = 0; i < n; i++)
-                {
                     q = Math.Max(q, p[i] + MemoizedCutRodAux(p, n - i - 1, r));
-                }
             }
 
             r[n] = q;
@@ -63,6 +61,43 @@ namespace Implementation.DynamicProgramming
             }
 
             return r[n];
+        }
+
+        public static void PrintCutRodSolution(int[] p, int n, Action<int> func)
+        {
+            var result = ExtendedBottomUpCutRod(p, n);
+            var s = result[1];
+
+            while (n > 0)
+            {
+                if (s[n] == 0)
+                {
+                    n--;
+                    continue;
+                }
+                func(s[n]);
+                n = n - s[n];
+            }
+        }
+
+        private static int[][] ExtendedBottomUpCutRod(int[] p, int n)
+        {
+            int[] r = new int[n + 1];
+            int[] s = new int[n + 1];
+
+            for (int j = 1; j <= n; j++)
+            {
+                int q = int.MinValue;
+                for (int i = 0; i < j; i++)
+                    if (q < p[i] + r[j - i - 1])
+                    {
+                        q = p[i] + r[j - i - 1];
+                        s[j] = i+1;
+                    }
+                r[j] = q;
+            }
+
+            return new int[][] { r, s };
         }
     }
 }
