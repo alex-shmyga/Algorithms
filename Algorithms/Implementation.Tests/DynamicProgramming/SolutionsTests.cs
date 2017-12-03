@@ -99,5 +99,57 @@ namespace Implementation.Tests.DynamicProgramming
             // assert
             printedValues.Should().BeEquivalentTo(new[] { 1, 6 });
         }
+
+        [Fact]
+        public void Fibonacci_numbers_for_zero_element()
+        {
+            // arrange
+            int[] prices = new int[] { 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+
+            // act
+            var result = Solutions.GetFibonacciNumber(0);
+
+            // assert
+            result.Should().Be(0);
+        }
+
+        [Fact]
+        public void Fibonacci_numbers_for_first_element()
+        {
+            // arrange
+            int[] prices = new int[] { 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+
+            // act
+            var result = Solutions.GetFibonacciNumber(1);
+
+            // assert
+            result.Should().Be(1);
+        }
+
+        [Fact]
+        public void Fibonacci_numbers_for_fourth_element()
+        {
+            // arrange
+            int[] prices = new int[] { 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+
+            // act
+            var result = Solutions.GetFibonacciNumber(4);
+
+            // assert
+            result.Should().Be(3);
+        }
+
+        [Fact]
+        public void Fibonacci_numbers_for_twenty_fifth_element()
+        {
+            // arrange
+            int[] prices = new int[] { 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+
+            // act
+            var result = Solutions.GetFibonacciNumber(25);
+
+            // assert
+            result.Should().Be(75025);
+        }
     }
 }
