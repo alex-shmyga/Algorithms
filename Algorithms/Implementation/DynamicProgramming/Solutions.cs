@@ -105,14 +105,73 @@ namespace Implementation.DynamicProgramming
             if (n == 0 || n == 1)
                 return n;
 
-            int[] memo = new int[n+1];
+            int[] memo = new int[n + 1];
             memo[0] = 0;
             memo[1] = 1;
 
-            for(int i = 2; i <= n; i++)
+            for (int i = 2; i <= n; i++)
                 memo[i] = memo[i - 1] + memo[i - 2];
 
             return memo[n];
         }
+
+        #region Longest common subsequence problem
+
+        public static void Print_LCS(string x, string y, Action<char> func)
+        {
+            int m = x.Length;
+            int n = y.Length;
+            char[,] b = new char[m, n];
+            int[,] c = new int[m+1, n+1];
+            LCS_Length(x, y, b, c);
+            Print_LCS(b, x, x.Length - 1, y.Length - 1, func);
+        }
+
+        private static void Print_LCS(char[,] b, string x, int i, int j, Action<char> print)
+        {
+            if (i == 0 || j == 0)
+                return;
+
+            if (b[i, j] == '↖')
+            {
+                Print_LCS(b, x, i - 1, j - 1, print);
+                print(x[i]);
+            }
+            else if (b[i, j] == '↑')
+                Print_LCS(b, x, i - 1, j, print);
+
+            else
+                Print_LCS(b, x, i, j - 1, print);
+        }
+
+        private static void LCS_Length(string x, string y, char[,] b, int[,] c)
+        {
+            int m = x.Length;
+            int n = y.Length;
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (x[i] == y[j])
+                    {
+                        c[i, j] = c[i, j] + 1;
+                       // b[i, j] = '↖';
+                    }
+                    else if (c[i, j+1] >= c[i+1, j])
+                    {
+                        c[i, j] = c[i - 1, j];
+                        //b[i, j] = '↑';
+                    }
+                    else
+                    {
+                        c[i, j] = c[i, j - 1];
+                        //b[i, j] = '←';
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }

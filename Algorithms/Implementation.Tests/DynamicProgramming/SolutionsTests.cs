@@ -151,5 +151,20 @@ namespace Implementation.Tests.DynamicProgramming
             // assert
             result.Should().Be(75025);
         }
+
+        [Fact]
+        public void Longest_common_subsequence_problem()
+        {
+            // arrange
+            string x = "ABCBDAB";
+            string y = "BDCABA";
+            var printedValues = "";
+
+            // act
+            Solutions.Print_LCS(x, y, (char value) => printedValues += value);
+
+            // assert
+            printedValues.Should().Be("BCBA");
+        }
     }
 }
