@@ -153,7 +153,7 @@ namespace Implementation.Tests.DynamicProgramming
         }
 
         [Fact]
-        public void Longest_common_subsequence_problem()
+        public void Print_longest_common_subsequence_problem()
         {
             // arrange
             string x = "ABCBDAB";
@@ -165,6 +165,20 @@ namespace Implementation.Tests.DynamicProgramming
 
             // assert
             printedValues.Should().Be("BCBA");
+        }
+
+        [Fact]
+        public void Get_longest_common_subsequence_length_problem()
+        {
+            // arrange
+            string x = "ABCBDAB";
+            string y = "BDCABA";
+
+            // act
+            int result =  Solutions.Get_LCS_Length(x, y);
+
+            // assert
+            result.Should().Be(4);
         }
     }
 }

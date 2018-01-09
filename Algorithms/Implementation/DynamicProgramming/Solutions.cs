@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Implementation.DynamicProgramming
 {
@@ -125,6 +126,17 @@ namespace Implementation.DynamicProgramming
             int[,] c = new int[m+1, n+1];
             LCS_Length(x, y, b, c);
             Print_LCS(b, x, x.Length - 1, y.Length - 1, func);
+        }
+
+        public static int Get_LCS_Length(string x, string y)
+        {
+            int m = x.Length;
+            int n = y.Length;
+            char[,] b = new char[m, n];
+            int[,] c = new int[m + 1, n + 1];
+            LCS_Length(x, y, b, c);
+
+            return c.Cast<int>().Max();
         }
 
         private static void Print_LCS(char[,] b, string x, int i, int j, Action<char> print)
