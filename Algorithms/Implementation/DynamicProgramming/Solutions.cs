@@ -129,7 +129,7 @@ namespace Implementation.DynamicProgramming
 
         private static void Print_LCS(char[,] b, string x, int i, int j, Action<char> print)
         {
-            if (i == 0 || j == 0)
+            if (i == -1 || j == -1)
                 return;
 
             if (b[i, j] == '↖')
@@ -155,18 +155,18 @@ namespace Implementation.DynamicProgramming
                 {
                     if (x[i] == y[j])
                     {
-                        c[i, j] = c[i, j] + 1;
-                       // b[i, j] = '↖';
+                        c[i+1, j+1] = c[i, j] + 1;
+                        b[i, j] = '↖';
                     }
                     else if (c[i, j+1] >= c[i+1, j])
                     {
-                        c[i, j] = c[i - 1, j];
-                        //b[i, j] = '↑';
+                        c[i+1, j+1] = c[i, j+1];
+                        b[i, j] = '↑';
                     }
                     else
                     {
-                        c[i, j] = c[i, j - 1];
-                        //b[i, j] = '←';
+                        c[i+1, j+1] = c[i+1, j];
+                        b[i, j] = '←';
                     }
                 }
             }
