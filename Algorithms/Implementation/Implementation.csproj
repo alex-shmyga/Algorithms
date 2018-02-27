@@ -44,6 +44,7 @@
     <Compile Include="DynamicProgramming\Solutions.cs" />
     <Compile Include="SimpleDS\BinaryTree.cs" />
     <Compile Include="SimpleDS\DoubleLinkedList.cs" />
+    <Compile Include="SimpleDS\Exercices\IsBinarySearchTree.cs" />
     <Compile Include="SimpleDS\Queue.cs" />
     <Compile Include="SimpleDS\RedBlackTree.cs" />
     <Compile Include="SimpleDS\Stack.cs" />
